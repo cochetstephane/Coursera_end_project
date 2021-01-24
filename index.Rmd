@@ -1,0 +1,71 @@
+---
+title       : Linear regression with a selection of regressors
+subtitle    : Performed on the dataset MTCARS
+author      : S.Cochet 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Slide 2
+
+The datasets is composed of different columns: 
+
+```{r datasets}
+head(mtcars, 3)
+````
+
+During the chapter related to Regresion model, it was determined the regressors with the most influence on the dependant variable mpg (taking into consideration the ones with a Pr(>|t|)) value greater than 0.05 which  means that a limited effect of this predictor on the outcome has been oberved)
+
+The three majors predictors are: wt (weight), am (type of transmission) and qsec (acceleration)
+
+--- .class #id 
+
+## Slide 3
+
+Let's review the linear model with the three predictors:
+
+```{r regression}
+fit <- lm(mpg ~ am + wt + qsec, data = mtcars)
+
+fit
+````
+
+
+Here are the results of the model with the three predictor, one can chose to identify a different combination of the predictors (two of them, one of them and view directly the effect on the coeeficients, Pr(|t|)) and adjusted R-squared
+
+--- .class #id 
+
+## Slide 4
+
+
+By acting on the choice of predictors, one can view that the predictor weight (wt) is the one which has the maximum effect on mpg : 
+
+
+  - Pr(|t|) equals 1.29 e-10 
+  
+  
+  - Adjusted R-square equals 0.74
+
+This predictor is a powerful one and explains 74 % of the variation of the dependant variable mpg
+
+
+--- .class #id 
+
+## Slide 5
+
+Would you need to find the sources ?
+
+SHINY:
+
+app.R
+
+SLIDIFY
+
+index.rmd
+
+Thanj you !
